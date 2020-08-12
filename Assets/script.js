@@ -26,14 +26,14 @@ function save() {
     localStorage.setItem(key, description)
     alert("Saved: " + "'" + description + "' "+ "for " + hour + ", " + today)
 }
-
 $(".saveBtn").on("click", save);
 
 function displayLocal() {
     $(".description").each(function() {
-        var blockD = $(this).text
+        var blockD = $(this).parent().attr("id");
+        $(this).val(localStorage.getItem(blockD));
     })
 }
 displayLocal();
-$("#09").children(".description").val(localStorage.getItem("09"))
-$("#10").children(".description").val(localStorage.getItem("10"))
+
+
